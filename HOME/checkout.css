@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+   
+    margin: 0;
+    padding: 20px;
+    background-color: #23222A;
+    background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
+    /* overflow: hidden; */
+    
+    
+}
+
+.section-container {
+
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Start sections as hidden */
+}
+
+.section-container:first-child {
+    height: fit-content;
+    display: block; /* Show only the first section initially */
+}
+
+.form-group {
+    margin-bottom: 15px;
+
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"],input[type="cvv"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.next-btn, .prev-btn, #submitForm {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Added space above the button */
+}
+
+.next-btn:hover, .prev-btn:hover, #submitForm:hover {
+    background-color: #0056b3;
+}
+
+.prev-btn {
+    margin-right: 5px;
+}
+
+#checkoutForm{
+    width: 600px;
+    
+}
+
+.dl-sqs, .dl-sqs2{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-group3{
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}

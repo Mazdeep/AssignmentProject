@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="booking.css">
+  <link rel="stylesheet" href="../NAVBARS/navbars.css">
+  <link rel="stylesheet" href="../NAVBARS/navbars.js">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://db.onlinewebfonts.com/c/f56de887103fafbc50b8d846974cd5d4?family=Samarkan+Normal+V1"
+    rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <!-- HEADER OF THE WESBITE -->
+  <header class="header-prime">
+
+    <!-- HEADER DIV INSIDE THE HEADER TO PREVENT FILTER INHERITANCE -->
+    <div class="header-omega">
+
+      <!-- NAVIGATION BAR -->
+      <div id="header-placeholder" class="main-header">
+      </div>
+
+
+      <!-- HEADER CONTENT -->
+      <div class="header-content">
+        <h2>Let it be a Anniversary Party <br> or a chill evening with friends</h2>
+        <p>We are here to make your special day a litle extra Special!!</p>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <!-- Booking DIV CONTAINER -->
+    <div id="booking-form" class="booking-main">
+      <div class="booking-sub1">
+        <h1>BOOK</h1>
+        <h1>YOUR</h1>
+        <h1>TABLE</h1>
+        <h1>TODAY</h1>
+        <h3>And let us make your day memorable</h3>
+        <h3>Explore our 6 restaurants and choose your nearest one</h3>
+      </div>
+      <div class="booking-sub2">
+        <div>
+          <form action="" method="POST">
+            <fieldset>
+              <legend>Personal Information</legend>
+              <div class="inline-field">
+                <label for="title">Title:</label>
+                <select id="title" name="title">
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Ms">Ms</option>
+                  <!-- Add more titles as needed -->
+                </select>
+              </div>
+              <div class="inline-field">
+                <label aria-label="Enter your full name" for="name">Name: *</label>
+                <input aria-label="" type="text" id="name" name="name" pattern="[A-Za-Z ]+" required>
+              </div>
+              <div class="inline-field">
+                <label aria-label="Enter your email address" for="email">Email: *</label>
+                <input aria-label="" type="email" id="email" name="email" required>
+              </div>
+              <div class="inline-field">
+                <label aria-label="Enter your contact number" for="contact_number">Contact Number: *</label>
+                <input aria-label="" type="tel" id="contact_number" name="contact_number" pattern="\+44[0-9]{10}" placeholder="+44"
+                  required>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Reservation Details</legend>
+              <div class="inline-field">
+                <label for="restaurant">Restaurant: *</label>
+                <select aria-label="Enter the restaurant you'll be visiting" id="restaurant" name="restaurant" required>
+                  <option value="IndiFeast London">IndiFeast London</option>
+                  <option value="IndiFeast Cambridge">IndiFeast Cambridge</option>
+                  <option value="IndiFeast Birmingham">IndiFeast Birmingham</option>
+                  <option value="IndiFeast Birmingham">IndiFeast Manchester</option>
+                  <option value="IndiFeast Birmingham">IndiFeast Liverpool</option>
+                  <option value="IndiFeast Birmingham">IndiFeast Glasgow</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="inline-field">
+                <label aria-label="Enter number of guests" for="num_guests">Number of Guests: *</label>
+                <input aria-label="minimum required one" type="number" id="num_guests" name="num_guests" min="1" required>
+              </div>
+              <div class="inline-field">
+                <label  aria-label="Enter your Booking date" for="booking_date">Booking Date: *</label>
+                <input aria-label="" type="date" id="booking_date" name="booking_date" required>
+              </div>
+              <div class="inline-field">
+                <label for="arrival_time">Arrival Time: *</label>
+                <input type="time" id="arrival_time" name="arrival_time" required>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Additional Information</legend>
+              <div class="inline-field">
+                <label for="occasion">Occasion: (optional)</label>
+                <select id="occasion" name="occasion">
+                  <option value="">None</option>
+                  <option value="birthday">Birthday</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="business_meeting">Business Meeting</option>
+                  <option value="corporate_lunch">Corporate Lunch</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="inline-field special-request">
+                <label aria-label="Enter any special requests." for="special_request">Special Request: (optional)</label>
+                <textarea aria-label="" style="width: 96%; margin-top: 8px;" id="special_request" name="special_request"
+                  rows="4"></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="checkbox-container">
+              <div class="inline-field">
+                <input aria-label="Tick the terms and conditions for reservation and cancellation policies." type="checkbox" id="terms_agreement" name="terms_agreement" required>
+                <label aria-label="" for="terms_agreement">I have read and agree to the reservation and cancellation policies, and
+                  other terms and conditions.</label>
+              </div>
+            </fieldset>
+
+            <button id="submitBtn" type="submit">Submit Reservation</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Our Restaurant Container -->
+
+    <div id="restaurants-list" class="restaurant-main">
+      <h1>Our Restaurants</h1>
+  
+      <div class="restaurants">
+          <!-- RESTAURANTS CARDS -->
+          <div class="restaurant">
+              <div id="img1" class="image-restaurant"></div>
+              <h2>Indifeast London </h2>
+              <p>Address: 72 Albert Road, London, WO1 2HY </p>
+              <p>Phone: 44 7066417441</p>
+              <p>Timings: 11:00am - 01:00am</p>
+          </div>
+  
+          <div class="restaurant">
+              <div id="img2" class="image-restaurant"></div>
+              <h2>Indifeast Birmingham </h2>
+              <p>Address: 184 Broad St, Birmingham, B15 1DA </p>
+              <p>Phone: 44 7044902793</p>
+              <p>Timings: 11:00am - 10:00pm</p>
+          </div>
+  
+          <div class="restaurant">
+              <div id="img3" class="image-restaurant"></div>
+              <h2>Indifeast Manchester</h2>
+              <p>Address: 64 Bridge St, Manchester, M3 3BN</p>
+              <p>Phone: 44 7054741265
+              </p>
+              <p>Timings: 11:00am - 12:00am</p>
+          </div>
+  
+          <div class="restaurant">
+              <div id="img4" class="image-restaurant"></div>
+              <h2>Indifeast Liverpool </h2>
+              <p>Address: 32 Lord st, Liverpool, L8G 70Q</p>
+              <p>Phone: 44 7045683448
+              </p>
+              <p>Timings: 11:00am-10:00pm</p>
+          </div>
+  
+          <div class="restaurant">
+              <div id="img5" class="image-restaurant"></div>
+              <h2>Indifeast Glasgow </h2>
+              <p>Address: 1478 Pollokshaws Rd, Glasgow, G43 1RN</p>
+              <p>Phone: 44 7066339117
+              </p>
+              <p>Timings: 11:00am-10:00pm</p>
+          </div>
+  
+          <div class="restaurant">
+              <div id="img6" class="image-restaurant"></div>
+              <h2>Indifeast Cambridge</h2>
+              <p>Address: 13 St Johns Street, Cambridge, CB1 0GA </p>
+              <p>Phone: 44 7024129049
+              </p>
+              <p>Timings: 11:00am-12:00am</p>
+          </div>
+  
+  
+  
+  
+  
+      </div>
+  </div>
+
+
+    <!-- Events Gallery Container -->
+    <div id="events-photos" class="events-gallery">
+      <h1>Events Gallery</h1>
+      <div class="egmain">
+        <div id="bg1" class="gallery-item"></div>
+        <div id="bg2" class="gallery-item"></div>
+        <div id="bg3" class="gallery-item"></div>
+        <div id="bg4" class="gallery-item"></div>
+        <div id="bg5" class="gallery-item"></div>
+        <div id="bg6" class="gallery-item"></div>
+      </div>
+    </div>
+
+    <div id="greeting">Thank you for booking with us!</div>
+
+  </main>
+
+  <!-- FOOTER CONTAINER -->
+  <footer id="footer-placeholder">
+  </footer>
+  <script src="https://kit.fontawesome.com/fd3bb823f3.js" crossorigin="anonymous"></script>
+  <script src="../HOME/homepage.js"></script>
+  <script src="">
+    document.querySelectorAll('.restaurant').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        // Example: Change shadow color on hover
+        item.style.boxShadow = '0 6px 16px rgba(255,165,0,0.6)'; // Orange glow
+    });
+    item.addEventListener('mouseleave', () => {
+        // Revert to original shadow
+        item.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+    });
+});
+
+  // JavaScript to handle button click
+  document.getElementById('submitBtn').addEventListener('click', function() {
+    document.getElementById('greeting').style.display = 'block'; // Show the greeting message
+  });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+/* FAQ COTAINER CSS */
+.faq-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+    
+
+    /* flex-direction: column; */
+    gap: 20px;
+    
+}
+
+.header-prime::before {
+    background-image: url(../ASSETS/43317.jpg);
+  }
+.faq-main h1{
+    text-align: center;
+    margin: 0%;
+    padding-top: 20px;
+}
+
+.faq-main{
+    margin-top: 20px;
+    background-color: #ddd;
+    padding: 20px;
+    background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);
+}
+.faq-card {
+    width: 280PX;
+    height: 50px;
+    
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+    height: auto;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-answer {
+    color: #333;
+    display: none;
+    line-height: 1.6;
+}
+
+.faq-card:hover .faq-answer {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+/* FORM MAIN CONTAINNER */
+
+.form-group{
+    
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    
+    /* background-color: aqua; */
+}
+
+.form-group2{
+    margin-top: 10px;
+}
+
+.form-group3{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#contactForm{
+    /* background-color: burlywood; */
+    background-image: linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);
+
+    
+    width: 800px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+    .form-group select
+    .form-group3 textarea{
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+
+#title{
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 20px;
+
+}
+
+.contact-sub2{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-sub1{
+    height: 500px;
+    width: 500px;
+    background-image: url(../ASSETS/logos/Service\ 24_7-bro.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.sbbutton{
+    background-color: red;
+    color: white;
+    height: 30px;
+    width: 100px;
+}

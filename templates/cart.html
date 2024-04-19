@@ -1,0 +1,68 @@
+<div class="shopping-cart">
+  <!-- HEADER OF THE SHOPING -->
+  <div class="shopping-header">
+    <span class="header-arrow">&lt;</span>
+    <h2>Shopping Bag</h2>
+    <span class="header-cart">&#x1F6D2;</span>
+  </div>
+
+  <!-- Repeat this section for each item in the cart -->
+
+  <!-- MAIN IMAGE DIV -->
+  <div class="cart-item">
+
+    <div style="display: flex">
+      <!-- IMAGE DIV -->
+      <div class="item-image">
+        <!-- Item image goes here -->
+      </div>
+
+      <!-- ITEMS DETAILS HERE -->
+      <div class="item-details">
+
+        <div id="cart-header" class="updated-cart1">
+          <p class="item-name">Chole Bhature</p>
+          <h2>$7</h2>
+        </div>
+
+        <div id="updated-cart2" class="updated-cart1">
+          <div class="quantity-selector">
+            <button class="quantity-btn remove">-</button>
+            <input type="text" class="quantity-input" value="1" readonly>
+            <button class="quantity-btn add">+</button>
+          </div>
+
+          <div>
+            <span class="material-symbols-outlined">
+              delete
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End of cart item section -->
+
+  <div class="promo-code">
+    <input type="text" placeholder="Promo Code">
+    <button class="apply-btn">Apply</button>
+  </div>
+
+  <div class="pricing">
+    <div class="subtotal">
+      <p>Sub total</p>
+      <p>$29</p>
+    </div>
+    <div class="delivery-fee">
+      <p>Delivery Fee</p>
+      <p>$10</p>
+    </div>
+    <div class="grand-total">
+      <p>Grand Total</p>
+      <p>$39</p>
+    </div>
+  </div>
+
+  <button id="checkoutButton" class="checkout-btn">Proceed to checkout</button>
+</div>

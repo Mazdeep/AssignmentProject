@@ -1,0 +1,58 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://db.onlinewebfonts.com/c/f56de887103fafbc50b8d846974cd5d4?family=Samarkan+Normal+V1"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<div class="main-header">
+    <div id="logo">
+        <a href="#">Indi<span
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">f</span>east</a>
+    </div>
+
+    <div class="nav-options">
+        <nav id='menu'>
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <ul>
+                <li><a href="../HOME/homepage.html">Home</a></li>
+                <li><a href="../MENU/menu.html">Menu</a></li>
+                <li><a href="../ABOUT US/aboutus.html">About us</a></li>
+                <li><a href="../BOOKING/booking.html">Booking</a></li>
+                <li><a href="../CONTACT US/contact.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="navbar-icons">
+        <div class="settings-icon">
+            <a class="settings-icon" href="#" id="settings"><span class="material-symbols-outlined">settings</span></a>
+            <div class="dropdown-content" id="settingsDropdown">
+                <a href="#" id="currencyOption">Change Currency</a>
+                <div class="sub-dropdown-content">
+                    <a class="currency-option" data-currency="USD" href="#">US Dollar (US)</a>
+                    <a class="currency-option" data-currency="GBP" href="#">British Pound (GBP)</a>
+                    <a class="currency-option" data-currency="INR" href="#">Indian Rupee (INR)</a>
+                </div>
+                <div class="dark-mode-container">
+                    <p>Dark Mode</p>
+                    <div class="flipswitch">
+                        <input type="checkbox" name="darkModeToggle" class="flipswitch-cb" id="darkModeToggle" checked>
+                        <label class="flipswitch-label" for="darkModeToggle">
+                            <div class="flipswitch-inner"></div>
+                            <div class="flipswitch-switch"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cart-icon" class="cart-container">
+            <div>
+                <a href="#"><span class="material-symbols-outlined">shopping_cart</span></a>
+            </div>
+            <div id="cart-placeholder"></div>
+        </div> 
+    </div>
+</div>

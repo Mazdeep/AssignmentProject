@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Delivery Restaurant Checkout Form</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<form id="checkoutForm">
+
+    <div class="section-container" id="section1">
+        <h2>PERSONAL DETAILS</h2>
+        <div class="form-group">
+            <label>Title: </label>
+            <select name="title" required>
+                <option value="Mr" selected>Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>First Name: </label>
+            <input type="text" name="firstName" placeholder="John" required pattern="[A-Za-z]{3,}">
+        </div>
+        <div class="form-group">
+            <label>Last Name: </label>
+            <input type="text" name="lastName" placeholder="Doe" required pattern="[A-Za-z]{3,}">
+        </div>
+        <div class="form-group">
+            <label>Phone Number: </label>
+            <input type="tel" name="phoneNumber" placeholder="Enter your contact number here" required pattern="\+44\d{10}" value="+44">
+        </div>
+        <div class="form-group">
+            <label>Email: </label>
+            <input type="email" name="email" placeholder="johndoe@gmail.com" required>
+        </div>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="section-container" id="section2" style="display:none;">
+        <h2>DELIVERY DETAILS</h2>
+        <!-- Delivery Details Section: Adapted from earlier requirements -->
+        <div class="form-group">
+            <label>Ordering for?</label>
+            <div>
+                <input type="radio" name="orderingFor" value="Myself" checked> Myself
+                <input type="radio" name="orderingFor" value="Family"> Family
+                <input type="radio" name="orderingFor" value="Friends"> Friends
+            </div>
+        </div>
+        <div id="additionalDetails"></div>
+        <div class="form-group">
+            <label>Delivery Address Line 1: </label>
+            <input type="text" name="address1" required>
+        </div>
+        <div class="form-group">
+            <label>Address Line 2: </label>
+            <input type="text" name="address2">
+        </div>
+        <div class="form-group">
+            <label>City: </label>
+            <input type="text" name="city" required>
+        </div>
+        <div class="form-group">
+            <label>Pincode: </label>
+            <input type="text" name="pincode" required>
+        </div>
+        <div class="form-group">
+            <label>Country: </label>
+            <input type="text" name="country" required>
+        </div>
+        <div class="form-group">
+            <label>Special Instructions: </label>
+            <textarea name="specialInstructions"></textarea>
+        </div>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="section-container" id="section3" style="display:none;">
+        <h2>PAYMENT INFORMATION</h2>
+        <div class="form-group">
+            <label>Payment Method: </label>
+            <div>
+                <input type="radio" name="paymentMethod" value="PayPal"> PayPal
+                <input type="radio" name="paymentMethod" value="CreditDebitCard"> Credit/Debit Card
+                <input type="radio" name="paymentMethod" value="CashOnDelivery"> Cash On Delivery
+            </div>
+        </div>
+        <div id="paymentDetails"></div>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="section-container" id="section4" style="display:none;">
+        <h2>OTHER INFORMATION</h2>
+        <div class="form-group">
+            <label>Promo Code: </label>
+            <input type="text" name="promoCode">
+        </div>
+        <div class="form-group3">
+            <div class="dl-sqs2">
+                <h3>Chole Bhature</h3>
+                <h4>$7</h4>
+            </div>
+        </div>
+
+        <!-- for the Pricing JavaScript -->
+        <div class="form-group">
+            <div class="dl-sqs">
+                <h3>Subtotal</h3>
+                <h4>$29</h4>
+            </div>
+            <div class="dl-sqs"><h3>Delivery-Fee</h3>
+                <h4>$29</h4>
+            </div>
+            <div class="dl-sqs">
+                <h3>Grand-total</h3>
+                <h4>$29</h4>
+            </div>  
+        </div>
+
+
+        <div class="form-group">
+            <input type="checkbox" name="termsAndConditions" required> I agree to the Terms and Conditions
+        </div>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="button" id="submitForm">Submit</button>
+    </div>
+
+</form>
+
+<script>document.addEventListener('DOMContentLoaded', function () {
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const prevBtns = document.querySelectorAll('.prev-btn');
+    const submitBtn = document.getElementById('submitForm');
+    const allSections = document.querySelectorAll('.section-container');
+    let currentSectionIndex = 0;
+
+    nextBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => changeSection(index + 1));
+    });
+
+    prevBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => changeSection(index));
+    });
+
+    submitBtn.addEventListener('click', function() {
+        if (validateSection(allSections.length - 1)) {
+            handleSubmit();
+        } else {
+            alert("Please fill in all required fields.");
+        }
+    });
+
+    function changeSection(index) {
+        if (index > currentSectionIndex) {
+            if (!validateSection(currentSectionIndex)) {
+                alert("Please fill in all required fields before proceeding.");
+                return;
+            }
+        }
+        allSections[currentSectionIndex].style.display = 'none';
+        allSections[index].style.display = 'block';
+        currentSectionIndex = index;
+    }
+
+    function validateSection(index) {
+        // Implement specific validation for each section if needed
+        // This placeholder always returns true for simplicity
+        return true;
+    }
+
+    function handleSubmit() {
+        const randomId = Math.floor(Math.random() * 9000000000) + 1000000000; // Generate 10 digit number
+        alert(`Thanks for ordering with us! Your tracking number is: ${randomId}`);
+        // Reset the form or redirect the user as needed
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const allSections = document.querySelectorAll('.section-container');
+    let currentSectionIndex = 0;
+
+    document.querySelectorAll('.next-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => changeSection(index + 1));
+    });
+
+    document.querySelectorAll('.prev-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => changeSection(index));
+    });
+
+    document.getElementById('submitForm').addEventListener('click', function() {
+        if (validateSection(allSections.length - 1)) {
+            handleSubmit();
+        } else {
+            alert("Please fill in all required fields.");
+        }
+    });
+
+    // Dynamic field addition based on "Ordering for" selection
+    document.querySelectorAll('input[name="orderingFor"]').forEach(input => {
+        input.addEventListener('change', function(e) {
+            handleOrderingForChange(e.target.value);
+        });
+    });
+
+    // Dynamic field addition based on "Payment Method" selection
+    document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
+        input.addEventListener('change', function(e) {
+            handlePaymentMethodChange(e.target.value);
+        });
+    });
+
+    function changeSection(index) {
+        // Validation and section change logic remains the same
+    }
+
+    function validateSection(index) {
+        // Implement specific validation for each section if needed
+        return true; // Placeholder validation
+    }
+
+    function handleSubmit() {
+        // Form submission logic remains the same
+    }
+
+    function handleOrderingForChange(value) {
+        const additionalDetails = document.getElementById('additionalDetails');
+        additionalDetails.innerHTML = ''; // Clear previous inputs
+        if (value === 'Family' || value === 'Friends') {
+            const nameLabel = value === 'Family' ? 'Family member\'s name' : 'Friend\'s name';
+            const contactLabel = value === 'Family' ? 'Family member\'s contact details' : 'Friend\'s contact details';
+            additionalDetails.appendChild(createInput(nameLabel, 'text', `${value.toLowerCase()}Name`, `Enter ${value.toLowerCase()}'s name`));
+            additionalDetails.appendChild(createInput(contactLabel, 'text', `${value.toLowerCase()}Contact`, `Enter ${value.toLowerCase()}'s contact details`));
+        }
+    }
+
+    function handlePaymentMethodChange(value) {
+        const paymentDetails = document.getElementById('paymentDetails');
+        paymentDetails.innerHTML = ''; // Clear previous inputs
+        if (value === 'PayPal') {
+            paymentDetails.appendChild(createInput('PayPal ID', 'text', 'paypalId', 'PayPal ID'));
+            paymentDetails.appendChild(createInput('Password', 'password', 'paypalPassword', 'Password', true));
+        } else if (value === 'CreditDebitCard') {
+            paymentDetails.appendChild(createInput('Name on Card', 'text', 'cardName', 'Name on Card', false, '[A-Za-z ]{3,}'));
+            paymentDetails.appendChild(createInput('Card Number', 'password', 'cardNumber', 'Card Number', true, '\\d{16}'));
+            paymentDetails.appendChild(createInput('CVV', 'password', 'cvv', 'CVV', true, '\\d{3}'));
+            paymentDetails.appendChild(createInput('Expiry Month (MM/YY)', 'text', 'expiryMonth', 'MM/YY'));
+        }
+    }
+
+    function createInput(labelText, type, name, placeholder, masked = false, pattern = '') {
+        const div = document.createElement('div');
+        div.className = 'form-group';
+        const label = document.createElement('label');
+        label.textContent = labelText;
+        const input = document.createElement('input');
+        input.type = type;
+        input.name = name;
+        input.placeholder = placeholder;
+        if (masked) input.setAttribute('maxlength', '16');
+        if (pattern) input.setAttribute('pattern', pattern);
+        div.appendChild(label);
+        div.appendChild(input);
+        return div;
+    }
+});
+
+//TUUUUUU
+document.addEventListener('DOMContentLoaded', function () {
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const prevBtns = document.querySelectorAll('.prev-btn');
+    const submitBtn = document.getElementById('submitForm');
+    const allSections = document.querySelectorAll('.section-container');
+    let currentSectionIndex = 0;
+
+    nextBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            if (validateCurrentSection(index)) {
+                navigateToSection(index + 1);
+            }
+        });
+    });
+
+    prevBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            navigateToSection(index);
+        });
+    });
+
+    submitBtn.addEventListener('click', function() {
+        if (validateCurrentSection(allSections.length - 1)) {
+            // Here, you could actually submit the form data
+            alert('Form submitted successfully.');
+        }
+    });
+
+    function navigateToSection(index) {
+        allSections[currentSectionIndex].style.display = 'none';
+        allSections[index].style.display = 'block';
+        currentSectionIndex = index;
+    }
+
+    function validateCurrentSection(index) {
+        let errors = [];
+        switch (index) {
+            case 0:
+                errors = validatePersonalDetails();
+                break;
+            case 1:
+                errors = validateDeliveryDetails();
+                break;
+            case 2:
+                errors = validatePaymentInformation();
+                break;
+            case 3:
+                errors = validateOtherInformation();
+                break;
+            default:
+                console.error("Validation for the section is not implemented.");
+                return false;
+        }
+
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return false;
+        }
+        return true;
+    }
+
+    // Include the validation functions here (validatePersonalDetails, validateDeliveryDetails, etc.)
+});
+
+function validatePersonalDetails() {
+    const title = document.querySelector('select[name="title"]').value;
+    const firstName = document.querySelector('input[name="firstName"]').value;
+    const lastName = document.querySelector('input[name="lastName"]').value;
+    const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    let errors = [];
+
+    if (!title) errors.push("Title is required.");
+    if (!firstName.match(/^[A-Za-z]{3,}$/)) errors.push("First Name must contain only letters and be at least 3 characters long.");
+    if (!lastName.match(/^[A-Za-z]{3,}$/)) errors.push("Last Name must contain only letters and be at least 3 characters long.");
+    if (!phoneNumber.match(/^\+44\d{10}$/)) errors.push("Phone Number must follow the format +44 followed by 10 digits.");
+    if (!email.includes('@')) errors.push("Email must contain an @ symbol.");
+
+    return errors;
+}
+
+function validateDeliveryDetails() {
+    const orderingFor = document.querySelector('input[name="orderingFor"]:checked').value;
+    const address1 = document.querySelector('input[name="address1"]').value;
+    const city = document.querySelector('input[name="city"]').value;
+    const pincode = document.querySelector('input[name="pincode"]').value;
+    const country = document.querySelector('input[name="country"]').value;
+    let errors = [];
+
+    // Assuming validation for dynamically added fields needs to be handled when they are present
+    const additionalName = document.querySelector(`input[name="${orderingFor.toLowerCase()}Name"]`);
+    const additionalContact = document.querySelector(`input[name="${orderingFor.toLowerCase()}Contact"]`);
+
+    if (orderingFor === 'Family' || orderingFor === 'Friends') {
+        if (!additionalName.value) errors.push(`${orderingFor} Name is required.`);
+        if (!additionalContact.value) errors.push(`${orderingFor} Contact is required.`);
+    }
+    if (!address1) errors.push("Address Line 1 is required.");
+    if (!city) errors.push("City is required.");
+    if (!pincode) errors.push("Pincode is required.");
+    if (!country) errors.push("Country is required.");
+
+    return errors;
+}
+
+function validatePaymentInformation() {
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    let errors = [];
+
+    if (paymentMethod === 'PayPal') {
+        const paypalId = document.querySelector('input[name="paypalId"]').value;
+        const paypalPassword = document.querySelector('input[name="paypalPassword"]').value;
+        if (!paypalId) errors.push("PayPal ID is required.");
+        if (!paypalPassword) errors.push("PayPal Password is required.");
+    } else if (paymentMethod === 'CreditDebitCard') {
+        const cardName = document.querySelector('input[name="cardName"]').value;
+        const cardNumber = document.querySelector('input[name="cardNumber"]').value;
+        const cvv = document.querySelector('input[name="cvv"]').value;
+        const expiryMonth = document.querySelector('input[name="expiryMonth"]').value;
+        if (!cardName.match(/^[A-Za-z ]{3,}$/)) errors.push("Name on Card must contain only letters and be at least 3 characters long.");
+        if (!cardNumber.match(/^\d{16}$/)) errors.push("Card Number must be 16 digits.");
+        if (!cvv.match(/^\d{3}$/)) errors.push("CVV must be 3 digits.");
+        // Additional validation for expiryMonth can be complex, involving current date comparison
+    }
+
+    return errors;
+}
+
+function validateOtherInformation() {
+    const termsAndConditions = document.querySelector('input[name="termsAndConditions"]:checked');
+    let errors = [];
+
+    if (!termsAndConditions) errors.push("You must agree to the terms and conditions.");
+
+    return errors;
+}
+
+function onNextClick(sectionIndex) {
+    let errors = [];
+    switch (sectionIndex) {
+        case 0:
+            errors = validatePersonalDetails();
+            break;
+        case 1:
+            errors = validateDeliveryDetails();
+            break;
+        case 2:
+            errors = validatePaymentInformation();
+            break;
+        case 3:
+            errors = validateOtherInformation();
+            break;
+        default:
+            console.log("Unknown section");
+    }
+    
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
+    // Proceed to next section or submit form
+    return true;
+}
+
+
+
+
+</script>
+</body>
+</html>
