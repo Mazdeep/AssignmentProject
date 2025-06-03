@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - IndiFeast</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-grow container mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold mb-6 text-center">Our Menu</h1>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <img src="../ASSETS/dish/1.jpg" alt="Dish" class="w-full h-40 object-cover rounded mb-2">
+        <h2 class="font-semibold">Chicken Curry</h2>
+        <p class="text-sm text-gray-600">£12</p>
+        <button class="mt-2 bg-purple-600 text-white px-4 py-1 rounded hover:bg-purple-700 transition">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <img src="../ASSETS/dish/2.jpg" alt="Dish" class="w-full h-40 object-cover rounded mb-2">
+        <h2 class="font-semibold">Paneer Tikka</h2>
+        <p class="text-sm text-gray-600">£10</p>
+        <button class="mt-2 bg-purple-600 text-white px-4 py-1 rounded hover:bg-purple-700 transition">Add to Cart</button>
+      </div>
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <img src="../ASSETS/dish/3.jpg" alt="Dish" class="w-full h-40 object-cover rounded mb-2">
+        <h2 class="font-semibold">Biryani</h2>
+        <p class="text-sm text-gray-600">£15</p>
+        <button class="mt-2 bg-purple-600 text-white px-4 py-1 rounded hover:bg-purple-700 transition">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="cart-placeholder"></div>
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module">import { initCart } from './js/main.js'; initCart();</script>
+</body>
+</html>
